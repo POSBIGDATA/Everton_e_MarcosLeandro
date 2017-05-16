@@ -1,45 +1,59 @@
 # MapRecude
 
-<strong>Equipe</strong><br />
-<a href="https://github.com/Marcos-Leandro" target="blank">Marcos Leandro</a><br />
-<a href="https://github.com/evertonlf" target="blank">Everton Fernandes</a>
-<br />
-<br />
-<strong>Atividade</strong>
-<br />
+### Equipe
+
+  - [Marcos Leandro]
+  - [Everton Fernandes]
+
+Atividade:
 Encontrar as 1500 palavras mais usadas em 1 determinado livro.
-<br />
-<br  />
-<strong>Executar passos na raiz deste projeto</strong><br />
-Instalar o python3<br />
-Instalar o  bs4<br />
-Configurar no arquivos "extract_text.py" o caminho do diretório do livro, o diretório de saída e o nome do arquivo de saída<br />
-<br />
-O script pode ser executada de duas formas:<br />
-<strong>Forma 1</strong>:<br />
-Executar os seguintes comandos no terminal no diretório dos arquivos<br />
-1 - <i>python3.4 extract_text.py</i><br />
------(extrai e salva somente o conteúdo do arquivo)<br />
-2 - <i>cat livros.txt | python  map.py | sort | python reduce.py > output.txt</i><br />
------(pega o arquivo gerado faz o "map", o "reduce" e salva no arquivo de saída)<br />
-3 - Visualizar o arquivo de saída "output.txt" no diretório dos arquivos.
-<br />
-<br />
-<strong>Foma 2</strong>:<br />
-Executar os seguintes comandos no terminal no diretório dos arquivos<br />
-1 - <i>python3.4 extract_text.py</i><br />
------(extrai e salva somente o conteúdo do arquivo)<br />
-2 - <i>hdfs dfs -put /home/cloudera/Documents/python/livros.txt /user/cloudera/arquivos/</i><br />
------(coloca o arquivo gerado dentro do hdfs)<br />
-3 - <i>hadoop     jar /usr/lib/hadoop-mapreduce/hadoop-streaming-*.jar     -D mapred.job.name="Hadoop_Streaming_UP"     -mapper "python /home/cloudera/Documents/python/map.py"     -reducer "python /home/cloudera/Documents/python/reduce.py"     -input "arquivos/livrosForHdfs.txt"     -output "arquivos/saidaHdfs"</i><br />
------parametros:<br />
------seleciona a biblioteca hadoop-streaming-*.jar<br />
------define um nome para o job<br />
------seleciona o arquivo de map<br />
------seleciona o arquivo de reduce<br />
------arquivo de entrada dentro do hdfs<br />
------diretório de saída dentro do hdfs<br />
-4 - Visualizar dentro do hdfs o arquivo de saída.
-<br />
-<br />
-A diferença entre as duas formas é que a primeira executa o map reduce sem utilizar o hdfs, já a segunda utiliza o streaming do hdfs.
+### Requisitos
+  - Instalar o python3
+  - Instalar o  bs4
+  - Configurar no arquivos "extract_text.py" o caminho do diretório do livro, o diretório de saída e o nome do arquivo de saída
+
+O script pode ser executada de duas formas:
+###### Forma 1:
+  - Executar os seguintes comandos no terminal no diretório dos arquivos
+```sh
+python3.4 extract_text.py
+cat livros.txt | python  map.py | sort | python reduce.py > output.txt
+```
+
+  - Visualizar o arquivo de saída "output.txt" no diretório dos arquivos
+
+| Linha | Descrição |
+| ------ | ------ |
+| Linha 1 | extrai e salva somente o conteúdo do livro em um novo arquivo |
+| Linha 2 | pega o arquivo gerado faz o "map", o "reduce" e salva no arquivo de saída |
+
+###### Forma 2:
+  - Executar os seguintes comandos no terminal no diretório dos arquivos
+```sh
+python3.4 extract_text.py
+hdfs dfs -put /home/cloudera/Documents/python/livros.txt /user/cloudera/arquivos/
+hadoop  jar /usr/lib/hadoop-mapreduce/hadoop-streaming-*.jar     
+        -D mapred.job.name="Hadoop_Streaming_UP"
+        -mapper "python /home/cloudera/Documents/python/map.py"
+        -reducer "python /home/cloudera/Documents/python/reduce.py"
+        -input "arquivos/livrosForHdfs.txt"
+        -output "arquivos/saidaHdfs"
+```
+  - Visualizar dentro do hdfs o arquivo de saída
+
+| Linha | Descrição |
+| ------ | ------ |
+| Linha 1 | extrai e salva somente o conteúdo do livro em um novo arquivo |
+| Linha 2 | coloca o arquivo gerado dentro do hdfs |
+| Linha 3 | Comando para executar o map reduce |
+| Linha 3: Parâmetro 1 | biblioteca hadoop-streaming-*.jar |
+| Linha 3: Parâmetro 2 | define um nome para o job |
+| Linha 3: Parâmetro 3 | seleciona o arquivo de map |
+| Linha 3: Parâmetro 4 | seleciona o arquivo de reduce |
+| Linha 3: Parâmetro 5 | arquivo de entrada dentro do hdfs |
+| Linha 3: Parâmetro 6 | diretório de saída dentro do hdfs |
+
+Obs.: A diferença entre as duas formas é que a primeira executa o map reducer sem utilizar o hdfs, já a segunda utiliza o streaming do hdfs.
+
+   [Marcos Leandro]: <https://github.com/Marcos-Leandro>
+   [Everton Fernandes]: <https://github.com/evertonlf>
