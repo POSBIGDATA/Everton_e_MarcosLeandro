@@ -16,22 +16,22 @@ Instalar o  bs4<br />
 Configurar no arquivos "extract_text.py" o caminho do diretório do livro, o diretório de saída e o nome do arquivo de saída<br />
 <br />
 O script pode ser executada de duas formas:<br />
-Forma 1:<br />
+<strong>Forma 1</strong>:<br />
 Executar os seguintes comandos no terminal no diretório dos arquivos<br />
-1 - python3.4 extract_text.py<br />
+1 - <i>python3.4 extract_text.py</i><br />
 -----(extrai e salva somente o conteúdo do arquivo)<br />
-2 - cat livros.txt | python  map.py | sort | python reduce.py > output.txt<br />
+2 - <i>cat livros.txt | python  map.py | sort | python reduce.py > output.txt</i><br />
 -----(pega o arquivo gerado faz o "map", o "reduce" e salva no arquivo de saída)<br />
 3 - Visualizar o arquivo de saída "output.txt" no diretório dos arquivos.
 <br />
 <br />
-Foma 2:<br />
+<strong>Foma 2</strong>:<br />
 Executar os seguintes comandos no terminal no diretório dos arquivos<br />
-1 - python3.4 extract_text.py<br />
+1 - <i>python3.4 extract_text.py</i><br />
 -----(extrai e salva somente o conteúdo do arquivo)<br />
-2 - hdfs dfs -put /home/cloudera/Documents/python/livros.txt /user/cloudera/arquivos/<br />
+2 - <i>hdfs dfs -put /home/cloudera/Documents/python/livros.txt /user/cloudera/arquivos/</i><br />
 -----(coloca o arquivo gerado dentro do hdfs)<br />
-3 - hadoop     jar /usr/lib/hadoop-mapreduce/hadoop-streaming-*.jar     -D mapred.job.name="Hadoop_Streaming_UP"     -mapper "python /home/cloudera/Documents/python/map.py"     -reducer "python /home/cloudera/Documents/python/reduce.py"     -input "arquivos/livrosForHdfs.txt"     -output "arquivos/saidaHdfs"<br />
+3 - <i>hadoop     jar /usr/lib/hadoop-mapreduce/hadoop-streaming-*.jar     -D mapred.job.name="Hadoop_Streaming_UP"     -mapper "python /home/cloudera/Documents/python/map.py"     -reducer "python /home/cloudera/Documents/python/reduce.py"     -input "arquivos/livrosForHdfs.txt"     -output "arquivos/saidaHdfs"</i><br />
 -----parametros:<br />
 -----seleciona a biblioteca hadoop-streaming-*.jar<br />
 -----define um nome para o job<br />
